@@ -1,24 +1,49 @@
 <html>
     <head>
         <title>First Project on VS Code</title>
+        <style>
+            .inputs {
+                background: #e062c5;
+                border-radius: 10%;
+                border-width: 3px;
+                border-color: darkgrey;
+            }
+            h1 {
+                color: crimson;
+            }
+        </style>
     </head>
     <body style="text-align: center;">
-        <h1 style="color: crimson;">Project on Console<br>Open console</h1>
+        <h1>Project on Console<br>Open console</h1>
 
         <h4>Cloick on the button to wirte on the label</h4>
-        <input id="input" type="text">
-        <button style="background: #e062c5;border-radius: 10%;border-width: 3px;border-color: darkgrey;" type="submit">Print</button>
+        <input class="inputs" id="input_val" placeholder="Enter Text for Label">
+        <button onclick="update()">Print</button>
         
         <br>
+
+        <div id="text_area"></div>
+
         <br>
 
-        <label id="text_area"></label>
+        <h4>Enter number to find square root</h4>
+        <input class="inputs" id="input_sqrt_val" placeholder="Enter number">
+        <button onclick="sqrt()">Find</button>
+        <div id="display_sqrt"></div>
 
         <script>
-            function get_text() {
-                var text = (document.getElementsByName(input).text() );
-                document.getElementById(text_area).innerHTML (text);
+            function update() {
+                var text_of_input = document.getElementById("input_val").value;
+                console.log(text_of_input);
+                document.getElementById("text_area").innerHTML = text_of_input;
             };
+
+            function sqrt() {
+                var sqrt_val = document.getElementById("input_sqrt_val").value;
+                var sqrt_result = Math.sqrt(sqrt_val);
+                console.log(sqrt_result);
+                document.getElementById("display_sqrt").innerHTML = sqrt_result;
+            }
 
             console.log("My first console project")
 
@@ -42,6 +67,8 @@
 
             var sq_rt = Math.sqrt(no_one);
             var total_sq_rt = "Square root of 14 is" + sq_rt;
+            console.log(total_sq_rt);
+
         </script>
     </body>
 </html>
